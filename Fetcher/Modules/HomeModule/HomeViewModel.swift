@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 import Combine
 
-
 protocol HomeViewModelProtocol: NSObject {
     func bind(homeView:HomeView)
     var results:ResultsVO { get }
@@ -21,7 +20,6 @@ class HomeViewModel: NSObject, ObservableObject, HomeViewModelProtocol {
     private let _searchTableDelegate = SearchTableDelegate()
 }
 
-
 //MARK: - Setup
 extension HomeViewModel{
     func bind(homeView: HomeView) {
@@ -29,7 +27,8 @@ extension HomeViewModel{
         homeView.searchController.searchResultsUpdater = self
         homeView.searchController.searchBar.delegate = self
         homeView.tableView.dataSource = _searchTableDelegate
-        
+        homeView.tableView.delegate = _searchTableDelegate
+
         self.$results.receive(on: RunLoop.main).sink { results in
             homeView.tableView.reloadData()
         }.store(in: &cancellables)

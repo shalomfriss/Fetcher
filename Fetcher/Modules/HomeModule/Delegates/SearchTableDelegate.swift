@@ -8,8 +8,12 @@
 import Foundation
 import UIKit
 
-class SearchTableDelegate: NSObject, UITableViewDataSource {
+class SearchTableDelegate: NSObject, UITableViewDataSource, UITableViewDelegate {
     public weak var homeViewModel:HomeViewModelProtocol?
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         homeViewModel?.results.results?.count ?? 0

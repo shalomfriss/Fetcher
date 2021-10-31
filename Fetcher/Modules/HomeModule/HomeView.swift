@@ -31,7 +31,6 @@ class HomeView:UIView {
         tableView.backgroundColor = UIColor.white
         tableView.register(SearchResultCell.self, forCellReuseIdentifier: "SearchResultCell")
         
-        
         self.addSubview(tableView)
         
         tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
@@ -53,36 +52,3 @@ class HomeView:UIView {
         
     }
 }
-
-
-//extension HomeView: UISearchResultsUpdating, UISearchBarDelegate {
-//    func updateSearchResults(for searchController: UISearchController) {
-//        if(isFiltering) {
-//            guard let filterText = searchController.searchBar.text else { return }
-//            filterResults(filterText)
-//        }
-//    }
-//
-//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//        if(isFiltering) {
-//            return
-//        }
-//
-//        self.activityIndicator.startAnimating()
-//        guard let searchText = searchController.searchBar.text else { return }
-//        searchController.searchBar.text = ""
-//        self.presenter.searchForMovie(searchTerm: searchText, completion: { [weak self] results in
-//                self?.activityIndicator.stopAnimating()
-//                self?.searchTable.reloadData()
-//        })
-//    }
-//
-//    func filterResults(_ term:String) {
-//        presenter.filterResults(for: term)
-//        DispatchQueue.main.async {
-//            self.searchTable.reloadData()
-//        }
-//    }
-//
-//}
-//
