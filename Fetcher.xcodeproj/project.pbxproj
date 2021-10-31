@@ -31,6 +31,7 @@
 		4424183E272EF56E007BB8AE /* NetworkCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4424183D272EF56E007BB8AE /* NetworkCache.swift */; };
 		44241840272EF78A007BB8AE /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4424183F272EF78A007BB8AE /* BaseService.swift */; };
 		44241843272F03B0007BB8AE /* SearchTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44241842272F03B0007BB8AE /* SearchTableDelegate.swift */; };
+		44241846272F11A1007BB8AE /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44241845272F11A1007BB8AE /* SearchResultCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		4424183D272EF56E007BB8AE /* NetworkCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCache.swift; sourceTree = "<group>"; };
 		4424183F272EF78A007BB8AE /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		44241842272F03B0007BB8AE /* SearchTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableDelegate.swift; sourceTree = "<group>"; };
+		44241845272F11A1007BB8AE /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 		44027A0F272ECDD800BF88B6 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				44241844272F118C007BB8AE /* Cells */,
 				44027A25272ED90D00BF88B6 /* Models */,
 				44027A21272ED84B00BF88B6 /* Network */,
 				44027A17272ED2F300BF88B6 /* AdditionalProtocols */,
@@ -250,6 +253,14 @@
 				44241842272F03B0007BB8AE /* SearchTableDelegate.swift */,
 			);
 			path = Delegates;
+			sourceTree = "<group>";
+		};
+		44241844272F118C007BB8AE /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				44241845272F11A1007BB8AE /* SearchResultCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -396,6 +407,7 @@
 				44027A20272ED3C700BF88B6 /* HomeViewController.swift in Sources */,
 				4424183C272EE9FC007BB8AE /* MovieSearchService.swift in Sources */,
 				440279E7272ECDD000BF88B6 /* Fetcher.xcdatamodeld in Sources */,
+				44241846272F11A1007BB8AE /* SearchResultCell.swift in Sources */,
 				44027A1C272ED3B900BF88B6 /* HomeView.swift in Sources */,
 				4424183E272EF56E007BB8AE /* NetworkCache.swift in Sources */,
 				440279DD272ECDD000BF88B6 /* AppDelegate.swift in Sources */,

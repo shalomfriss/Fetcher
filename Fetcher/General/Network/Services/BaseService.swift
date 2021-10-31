@@ -8,10 +8,12 @@
 import Foundation
 
 class BaseService {
-    public func makeRequest(request:URLRequest, completion: @escaping (Result<Data, NetworkError>) -> Void) {
-        if let cachedData = NetworkCache.shared.getCachedResponse(request: request) {
-            completion(.success(cachedData))
-            return
+    public func makeRequest(request:URLRequest, skipCache:Bool = false, completion: @escaping (Result<Data, NetworkError>) -> Void) {
+        if(!skipCache) {
+            if let cachedData = NetworkCache.shared.getCachedResponse(request: request) {
+                completion(.success(cachedData))
+                return
+            }
         }
         
         let _ = URLSession.shared.dataTask(with: request) {(data, response, error) in

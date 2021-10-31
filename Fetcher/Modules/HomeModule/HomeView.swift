@@ -25,9 +25,12 @@ class HomeView:UIView {
     }
     
     func createSubviews() {
+        
         tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = UIColor.white
+        tableView.register(SearchResultCell.self, forCellReuseIdentifier: "SearchResultCell")
+        
         
         self.addSubview(tableView)
         

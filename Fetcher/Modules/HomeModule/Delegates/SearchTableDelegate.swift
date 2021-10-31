@@ -16,8 +16,13 @@ class SearchTableDelegate: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = homeViewModel?.results.results?[indexPath.row].title ?? "N/A"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell") as! SearchResultCell
+        if let result = homeViewModel?.results.results?[indexPath.row] {
+            cell.config(result: result)
+        }
+        
         return cell
     }
+    
+    
 }

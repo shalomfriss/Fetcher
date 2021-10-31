@@ -6,16 +6,14 @@
 //
 
 import Foundation
-
-import Foundation
 import UIKit
 import Combine
 
 /// The products view controller
 class HomeViewController: UIViewController, Coordinated {
     var coordinator: CoordinatorProtocol?
-    var homeView: HomeView                  = HomeView()
-    var homeViewModel:HomeViewModelProtocol?
+    var homeView: HomeView = HomeView()
+    var homeViewModel: HomeViewModelProtocol?
     
     //MARK- Lifecycle
     override func viewDidLoad() {

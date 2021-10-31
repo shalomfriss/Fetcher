@@ -25,7 +25,7 @@ class HomeViewModel: NSObject, ObservableObject, HomeViewModelProtocol {
 //MARK: - Setup
 extension HomeViewModel{
     func bind(homeView: HomeView) {
-        _searchTableDelegate.homeViewModel = self 
+        _searchTableDelegate.homeViewModel = self
         homeView.searchController.searchResultsUpdater = self
         homeView.searchController.searchBar.delegate = self
         homeView.tableView.dataSource = _searchTableDelegate

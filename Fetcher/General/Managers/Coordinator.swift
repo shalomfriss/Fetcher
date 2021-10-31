@@ -19,8 +19,6 @@ class Coordinator: NSObject, CoordinatorProtocol, UINavigationControllerDelegate
     
     init(window: UIWindow, navigationController: UINavigationController = UINavigationController()) {
         self.navigationController = navigationController
-        self.navigationController.navigationBar.backgroundColor = UIColor.white
-        self.navigationController.navigationBar.isTranslucent = true
         window.rootViewController = self.navigationController
         window.makeKeyAndVisible()
     }
