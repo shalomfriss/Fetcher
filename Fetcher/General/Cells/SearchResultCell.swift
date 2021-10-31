@@ -37,7 +37,7 @@ class SearchResultCell: UITableViewCell {
         overviewLabel.translatesAutoresizingMaskIntoConstraints = false
         overviewLabel.font = UIFont.systemFont(ofSize: 12.0)
         overviewLabel.textColor = UIColor.gray
-        overviewLabel.numberOfLines = 0
+        overviewLabel.numberOfLines = 3
         return overviewLabel
     }()
     
@@ -47,7 +47,7 @@ class SearchResultCell: UITableViewCell {
         favoriteButton.setImage(UIImage(imageLiteralResourceName: "star"), for: .normal)
         favoriteButton.setImage(UIImage(imageLiteralResourceName: "star_filled"), for: .selected)
         favoriteButton.backgroundColor = UIColor.white
-        favoriteButton.layer.cornerRadius = 20
+        favoriteButton.layer.cornerRadius = 16
         favoriteButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         return favoriteButton
     }()
@@ -71,27 +71,31 @@ class SearchResultCell: UITableViewCell {
         contentView.addSubview(favoriteButton)
         
         contentView.layer.cornerRadius = 5
-        contentView.backgroundColor = UIColor.systemGray5
         contentView.clipsToBounds = true
         
         viewConstraints = [
+            posterImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            posterImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            posterImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            posterImage.heightAnchor.constraint(equalToConstant: 100),
+            posterImage.widthAnchor.constraint(equalToConstant: 100),
+            
+            titleLabel.topAnchor.constraint(equalTo: posterImage.topAnchor, constant: 20),
+            titleLabel.leadingAnchor.constraint(equalTo: posterImage.trailingAnchor, constant: 10),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant:  -20),
+            
+            overviewLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5),
+            overviewLabel.leadingAnchor.constraint(equalTo: posterImage.trailingAnchor, constant: 10),
+            overviewLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            
             favoriteButton.widthAnchor.constraint(equalToConstant: 30),
             favoriteButton.heightAnchor.constraint(equalToConstant: 30),
-            favoriteButton.bottomAnchor.constraint(equalTo: contentView.topAnchor, constant: 40),
+            favoriteButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             favoriteButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
             
-            posterImage.topAnchor.constraint(equalTo: favoriteButton.topAnchor, constant: 40),
-            posterImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5),
-            posterImage.heightAnchor.constraint(equalToConstant: 200),
-            posterImage.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             
-            titleLabel.topAnchor.constraint(equalTo: posterImage.bottomAnchor, constant: 10),
-            titleLabel.leadingAnchor.constraint(equalTo: posterImage.leadingAnchor, constant: 10),
-            titleLabel.trailingAnchor.constraint(equalTo: posterImage.trailingAnchor, constant: -10),
             
-            overviewLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
-            overviewLabel.leadingAnchor.constraint(equalTo: posterImage.leadingAnchor, constant: 10),
-            overviewLabel.trailingAnchor.constraint(equalTo: posterImage.trailingAnchor, constant: -10),
+            
         ]
         
         NSLayoutConstraint.activate(viewConstraints)
