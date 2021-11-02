@@ -27,6 +27,7 @@ class NetworkManager: NetworkManagerProtocol {
     public static let shared:NetworkManager = NetworkManager()
     
     public var _movieSearchService = MovieSearchService()
+    public var _movieDetailsService = MovieDetailsService()
     
     //MARK:- Network calls
     /// Search for a movie
@@ -35,6 +36,10 @@ class NetworkManager: NetworkManagerProtocol {
     ///   - completion: Result<ResultsVO, NetworkError>
     public func searchForMovie(searchTerm:String, completion: @escaping (Result<ResultsVO, NetworkError>) -> Void) {
         _movieSearchService.searchForMovie(searchTerm: searchTerm, completion: completion)
+    }
+    
+    public func fetchMovieDetails(movieId: Int, completion: @escaping (Result<MovieDetailsModel, NetworkError>) -> Void) {
+        _movieDetailsService.fetchMovieDetails(movieId: movieId, completion: completion) 
     }
     
 }

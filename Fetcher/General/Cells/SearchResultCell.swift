@@ -82,20 +82,16 @@ class SearchResultCell: UITableViewCell {
             
             titleLabel.topAnchor.constraint(equalTo: posterImage.topAnchor, constant: 20),
             titleLabel.leadingAnchor.constraint(equalTo: posterImage.trailingAnchor, constant: 10),
-            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant:  -20),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant:  -40),
             
             overviewLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5),
             overviewLabel.leadingAnchor.constraint(equalTo: posterImage.trailingAnchor, constant: 10),
-            overviewLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            overviewLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -40),
             
             favoriteButton.widthAnchor.constraint(equalToConstant: 30),
             favoriteButton.heightAnchor.constraint(equalToConstant: 30),
             favoriteButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             favoriteButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            
-            
-            
-            
         ]
         
         NSLayoutConstraint.activate(viewConstraints)
@@ -103,11 +99,12 @@ class SearchResultCell: UITableViewCell {
     
     public func config(result:ResultVO) {
         
-        titleLabel.text = result.title
-        overviewLabel.text = result.overview
+        DispatchQueue.main.async { [weak self] in
+            self?.titleLabel.text = result.title
+            self?.overviewLabel.text = result.overview
+        }
         
-        let urlString = String(format: Paths.poster.rawValue, result.posterPath ?? "")
-        print(urlString)
+        let urlString = String(format: Paths.image.imagePath(), result.posterPath ?? "")
         
         guard let posterUrl = URL(string: urlString) else {
             print("ERROR BAD URL")
