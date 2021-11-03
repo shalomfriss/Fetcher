@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let window = window else { fatalError("Window could not be created") }
         
         coordinator = Coordinator(window: window)
-        coordinator?.start(initialViewController: HomeViewController())
+        coordinator?.start(initialViewController: HomeViewController(viewModel: HomeViewModel()))
         
         //Create logo
         let logo = UIImageView(frame: CGRect(x: 0, y: 0, width: 150, height: 25))

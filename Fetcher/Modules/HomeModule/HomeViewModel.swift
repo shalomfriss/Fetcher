@@ -28,7 +28,7 @@ extension HomeViewModel{
         homeView.searchController.searchBar.delegate = self
         homeView.tableView.dataSource = _searchTableDelegate
         homeView.tableView.delegate = _searchTableDelegate
-
+        
         self.$results.receive(on: RunLoop.main).sink { results in
             homeView.tableView.reloadData()
         }.store(in: &cancellables)

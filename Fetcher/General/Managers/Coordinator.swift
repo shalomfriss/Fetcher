@@ -29,4 +29,13 @@ class Coordinator: NSObject, CoordinatorProtocol, UINavigationControllerDelegate
         navigationController.pushViewController(initialViewController, animated: true)
     }
     
+    func showMovieDetailPage(movieId: Int) {
+        
+    }
+    /*
+     func createInstance<T>(aClass:T.Type) -> T {
+       return aClass()
+     }
+     */
+    
 }
